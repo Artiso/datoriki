@@ -1,0 +1,52 @@
+<?php
+echo $this->doctype();
+?>
+<html>
+<head>
+    <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+    <META HTTP-EQUIV="Expires" CONTENT="-1">
+<?php
+    echo $this->headMeta();
+    ?>
+<?php
+    echo $this->headTitle();
+    echo $this->headLink()->appendStylesheet($this->baseUrl() . '/css/style.css');
+    echo $this->jQuery();
+    ?>
+
+</head>
+
+
+<body>
+<div id="header">
+    <div id="userHeader">
+
+
+    </div>
+
+    <div id="header2">
+
+
+        <div class="menu">
+		<?php
+			echo $this->navigation()->menu();
+		?>
+        </div>
+
+    </div>
+</div>
+<div id="content">
+
+<?php
+    echo $this->partial('priorityMessages.phtml', array('priorityMessages' => $this->priorityMessenger()));
+
+    echo $this->layout()->content;
+?>
+
+	</div>
+<div id="footer"><p style="text-align:center;"><strong>© 2011/2012 Visas tiesības aizsargātas</strong></p></div>
+
+
+</body>
+
+</html>

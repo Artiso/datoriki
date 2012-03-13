@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configdata>
+    <nav>
+        <home>
+            <label>Sākums</label>
+            <module>default</module>
+            <controller>index</controller>
+            <action>index</action>
+            <order>3</order>
+        </home>
+
+    </nav>
+</configdata>

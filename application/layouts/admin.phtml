@@ -1,0 +1,44 @@
+<?php
+/**
+ * The default layout file for the admin section
+ */
+
+
+echo $this->doctype ();
+?>
+<html>
+<head>
+	<?php
+	echo $this->headMeta ();
+	?>
+	<?php
+	echo $this->headTitle ();
+	?>
+
+	<?php
+	echo $this->headLink ()->prependStylesheet ( $this->baseUrl () . '/css/style.css' );
+	?>
+	<?php
+
+	echo $this->jQuery ();
+	?>
+<?php
+
+	echo $this->headScript ();
+        ?>
+
+
+</head>
+<body>
+
+<?php
+echo $this->navigation ()->menu ()->render ();
+echo $this->layout ()->content;
+?>
+<
+
+                        
+                        
+
+</body>
+</html>
