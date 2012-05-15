@@ -9,4 +9,4 @@ RewriteEngine On
 RewriteRule ^(adm|statistics) - [L]
 RewriteRule ^(.*)$ public/$1 [L]
 
-        
+         

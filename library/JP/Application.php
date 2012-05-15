@@ -1,5 +1,6 @@
 <?php
-    require_once 'Zend/Application.php';
+    
+require_once 'Zend/Application.php';
     class JP_Application extends Zend_Application
     {
         /**
