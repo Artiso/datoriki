@@ -1,0 +1,23 @@
+<?php
+echo $this->doctype();
+?>
+<html>
+    <head>
+        <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+        <META HTTP-EQUIV="Expires" CONTENT="-1">
+        <?php
+            echo $this->headMeta();
+        ?>
+        <?php
+            echo $this->headTitle();
+            echo $this->headLink()->appendStylesheet($this->baseUrl('/css/style.css'));
+            echo $this->jQuery();
+        ?>
+    </head>
+    <body>
+        <div id="councilTopicContainer" class="section topicSection">
+            <h1>Datorikas fakultātes Studentu pašpārvaldes Akadēmiskā komisija</h1>
+            
+        </div>
+    </body>
+</html>

@@ -23,7 +23,7 @@ class AuthenticationController extends JP_Controller_Action
     {
         $this->_forward('login');
     }
-    public function loginAction()
+   /* public function loginAction()
     {
         $this->view->title = 'Login';
         if (Zend_Auth::getInstance()->hasIdentity()) {
@@ -33,7 +33,7 @@ class AuthenticationController extends JP_Controller_Action
 
         $redirectUri = APP_DOMAIN . '/authentication/login/';
 $this->_redirect($redirectUri);
-    }
+    }*/
 
     public function logoutAction()
     {

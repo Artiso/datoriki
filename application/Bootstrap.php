@@ -12,7 +12,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         return $modelLoader;
     }
 
-    protected function _initACL()
+    /*protected function _initACL()
     {
 
         if (Zend_Auth::getInstance()->hasIdentity()) {
@@ -25,7 +25,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $this->_auth = Zend_Auth::getInstance();
         $fc = Zend_Controller_Front::getInstance();
         $fc->registerPlugin(new Plugin_AccessCheck($this->_acl));
-    }
+    }*/
 
     protected function _initViewHelpers()
     {
@@ -43,9 +43,10 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $view->doctype('HTML4_STRICT');
         $view->headMeta()
                 ->appendHttpEquiv('Content-type', 'text/html;charset=utf-8')
-                ->appendName('description', 'Datoriķi.lv');
+                ->appendName('description', 'a message board for the students of the Computer Science faculty of the University of Latvia')
+        		->appendName('apraksts', 'interneta forums Latvijas Universitates Datorikas fakultates studentu sazinai un informacijas iegusanai');
         $view->headTitle()
-                ->setSeparator(' - ')
+                ->setSeparator(' | ')
                 ->headTitle('Datoriķi.lv');
     }
 

@@ -6,8 +6,40 @@
             <module>default</module>
             <controller>index</controller>
             <action>index</action>
-            <order>3</order>
+            <uri>/</uri>
+            <order>1</order>
         </home>
-
-    </nav>
+        <myProfile>
+        	<label>Mans profils</label>
+        	<module>default</module>
+        	<controller>index</controller>
+        	<action>viewProfile</action>
+        	<uri>/index/viewProfile</uri>
+        	<order>2</order>
+        </myProfile>
+        <messages>
+        	<label>Vēstules</label>
+        	<module>default</module>
+        	<controller>index</controller>
+        	<action>viewMessages</action>
+        	<uri>/index/viewMessages</uri>
+        	<order>3</order>
+        </messages>
+		<search>
+        	<label>Meklēt</label>
+        	<module>default</module>
+        	<controller>index</controller>
+        	<action>search</action>
+        	<uri>/index/search</uri>
+        	<order>4</order>
+        </search>   
+        <add>
+        	<label>Pievienot jaunu tēmu</label>
+        	<module>default</module>
+        	<controller>index</controller>
+        	<action>addtopic</action>
+        	<uri>/index/addtopic</uri>
+        	<order>5</order>
+        </add>     
+	</nav>
 </configdata>

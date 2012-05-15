@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Topic entries with XML form -->
+
+<forms>
+    <localhost>
+        <!-- Forum topic creation form -->
+        <topic> 
+            <action>addtopic</action>
+            <method>post</method>
+            <name>topicForm</name>
+            <elements>
+
+                <topicSubject>
+                    <type>text</type>
+                    <options>
+                        <label>Tēmas nosaukums:</label>
+                    </options>
+                </topicSubject>
+
+                <topicText>
+                    <type>text</type>
+                    <options>
+                        <label>Saturs:</label>
+                    </options>
+                </topicText>
+
+                <submit>
+                    <type>submit</type>
+                    <options>
+                        <label>Izveidot</label>
+                        <class>button</class>
+                    </options>
+                </submit>
+
+            </elements>
+        </topic>
+
+        <!-- Forum reply creation form -->
+        <reply>
+
+        </reply>
+    </localhost>
+</forms>

@@ -15,11 +15,13 @@ asdasdasd
 <div id="bar"></div>
 <div id="bodyblock" align="right">
 <div id="column" align="left">
-<h4 align="center">Menu</h4>
-<?php 
-//$partial_menu = array('menu.phtml', 'default');
-//$this->navigation()->menu()->setPartial($partial_menu);
-echo $this->navigation()->menu()->render(); ?>
+	<h4 align="center">Menu</h4>
+	<?php 
+		//$partial_menu = array('menu.phtml', 'default');
+		//$this->navigation()->menu()->setPartial($partial_menu);
+		echo $this->navigation()->menu()->render();
+	?>
+	
 </div>
 <div id="content">
 <?php echo $this->layout()->content; ?>
