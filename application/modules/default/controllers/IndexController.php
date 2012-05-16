@@ -19,15 +19,17 @@ class IndexController extends JP_Controller_Action
         // Adds a title to the page
         $this->view->headTitle('Sākums', 'PREPEND');
         
-        $sections = new Model_Sections();
-        $this->view->sections = $sections->fetchAll();
+        $sectionstwo = new Model_Sectionstwo();
+        $this->view->sectionstwo = $sectionstwo->fetchAll();
         
-        $sections = new Model_Undersections();
-        $this->view->undersections = $undersections->fetchAll();
+        //$sections = new Model_Sections();
+        //$this->view->sections = $sections->fetchAll();
+        
+        //$undersections = new Model_Undersections();
+        //$this->view->undersections = $undersections->fetchAll();
         
         $entries = new Model_Entries();
         $this->view->entries = $entries->fetchAll();
-
     }
 
     public function viewProfileAction()

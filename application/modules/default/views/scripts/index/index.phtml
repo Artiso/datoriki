@@ -15,19 +15,27 @@ echo $this->doctype();
         ?>
     </head>
     <body>
-        <div class="section">
-            <?php foreach($this->sections as $sections) : ?>
-                <!-- Generates names of sections -->
-                <h1><?php echo $this->escape($sections->section_name);?></h1>
-                
-                <!-- Generates names of undersections -->
-                <?php foreach($this->undersections as $undersections) : ?>
-                    <div class="underSection"><h2><a href="/index/councilacademic?section=1&amp;undersection=3&amp;underundersection=1"></a></h2></div>
-                <?php endforeach; ?>
-                    
-            <?php endforeach; ?>
-        </div>
         
+        <div class="section">
+           <?php foreach($this->sectionstwo as $sectionstwo) : ?>
+
+           <!-- Generates names of sections -->
+           <h1><?php echo $this->escape($sectionstwo->section_name);?></h1>
+
+              <!-- Generates names of undersections -->
+              <?php foreach($sectionstwo->getchildren() as $undersections) : ?>
+                 <div class="underSection">
+                    <h2>
+                      <a href="">
+                         <?php echo $this->escape($undersections->section_name);?>
+                      </a>
+                    </h2>
+                 </div>
+              <?php endforeach; ?>
+              
+           <?php endforeach; ?>
+        </div>
+         
         <?php foreach($this->entries as $entries) : ?>
                 <?php echo $this->escape($entries->entry_topic);?>
                 <?php echo $this->escape($entries->entry_text);?>
