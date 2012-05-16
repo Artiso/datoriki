@@ -19,8 +19,15 @@ class IndexController extends JP_Controller_Action
         // Adds a title to the page
         $this->view->headTitle('Sākums', 'PREPEND');
         
-        //$entries = new DbTable_Entries();
-        //$this->view->entries = $entries->fetchAll();
+        $sections = new Model_Sections();
+        $this->view->sections = $sections->fetchAll();
+        
+        $sections = new Model_Undersections();
+        $this->view->undersections = $undersections->fetchAll();
+        
+        $entries = new Model_Entries();
+        $this->view->entries = $entries->fetchAll();
+
     }
 
     public function viewProfileAction()
@@ -59,10 +66,11 @@ class IndexController extends JP_Controller_Action
         if ($this->getRequest()->isPost()) {
             $formData = $this->getRequest()->getPost();
             if ($form->isValid($formData)) {
+                $section_id = $form->getValue('section_id');
                 $entry_topic = $form->getValue('entry_topic');
                 $entry_text = $form->getValue('entry_text');
                 $posts = new Model_Entries();
-                $posts->addEntry($entry_topic, $entry_text);
+                $posts->addEntry($section_id, $entry_topic, $entry_text);
                 
                 $this->_helper->redirector('index');
             } else {

@@ -17,7 +17,14 @@ echo $this->doctype();
     <body>
         <div id="sectionContentContainer" class="section topicSection">
             <h1>Datorikas fakultātes Studentu pašpārvaldes Akadēmiskā komisija</h1>
-            
+            <?
+                $v1 = $_GET['section'];
+                $v2 = $_GET['undersection'];
+                $v3 = $_GET['underundersection'];
+                echo "Variable One Value: $v1
+                Variable Two Value: $v2
+                Variable Three Value: $v3";
+            ?>
         </div>
     </body>
 </html>

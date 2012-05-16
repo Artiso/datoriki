@@ -3,9 +3,10 @@
     {
         protected $_name = 'entries';
         
-        public function addEntry ($entry_topic, $entry_text)
+        public function addEntry ($section_id, $entry_topic, $entry_text)
         {
             $data = array(
+              'section_id' => 1, // $section_id
               'entry_topic' => $entry_topic,
               'entry_text' => $entry_text,
             );
