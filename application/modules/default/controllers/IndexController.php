@@ -16,7 +16,11 @@ class IndexController extends JP_Controller_Action
 
     public function indexAction()
     {
-       $this->view->headTitle('Sākums', 'PREPEND');
+        // Adds a title to the page
+        $this->view->headTitle('Sākums', 'PREPEND');
+        
+        //$entries = new DbTable_Entries();
+        //$this->view->entries = $entries->fetchAll();
     }
 
     public function viewProfileAction()
@@ -43,35 +47,36 @@ class IndexController extends JP_Controller_Action
     }*/
     
     function addtopicAction()
-    {
-        //$addTopocModel= new Model_Addtopic();
-        //$this->load->Model_Addtopic();
-        //$addTopicModel->getSomeData();
+    {  
+        // AddTopic model call
+        $addTopicModel = new Model_Addtopic();
+        $addTopicModel->newTopicForm();
         
-        //$this->view->form = $this->getForm('topic');
         $form = new Form_Thread();
-        $form->submit->setLabel('addtopic');
+        $form->submit->setLabel('Izveidot');
         $this->view->form = $form;
         
         if ($this->getRequest()->isPost()) {
             $formData = $this->getRequest()->getPost();
             if ($form->isValid($formData)) {
-                $threadTitle = $form->getValue('threadTitle');
-                $threadText = $form->getValue('threadText');
-                // ŠO IR JĀIZVEIDO: http://akrabat.com/wp-content/uploads/Getting-Started-with-Zend-Framework.pdf
-                $posts = new Application_Model_DbTable_Entries();
-                $posts->addEntry($threadTitle, $threadTitle);
+                $entry_topic = $form->getValue('entry_topic');
+                $entry_text = $form->getValue('entry_text');
+                $posts = new Model_Entries();
+                $posts->addEntry($entry_topic, $entry_text);
                 
                 $this->_helper->redirector('index');
             } else {
                 $form->populate($formData);
             }
-        }   
+        }
+        
     }
     
     public function councilacademicAction()
     {
-    	
+        $this->view->headTitle('Akadēmiskā komisija', 'PREPEND');
+        
     }
+    
 }
 

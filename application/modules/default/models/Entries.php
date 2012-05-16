@@ -1,13 +1,13 @@
 <?php
-    class DbTable_Entries extends Zend_Db_Table_Abstract
+    class Model_Entries extends Zend_Db_Table_Abstract
     {
         protected $_name = 'entries';
         
-        public function addEntry ($threadTopic, $threadText)
+        public function addEntry ($entry_topic, $entry_text)
         {
             $data = array(
-              'threadTopic' => $threadTopic,
-              'threadText' => $threadText,
+              'entry_topic' => $entry_topic,
+              'entry_text' => $entry_text,
             );
             $this->insert($data);
         }
@@ -25,8 +25,8 @@
         public function updateEntry ()
         {
             $data = array(
-            'threadTopic' => $threadTopic,
-            'threadText' => $threadText,
+            'entry_topic' => $entry_topic,
+            'entry_text' => $entry_text,
             );
             $this->update($data, 'entry_id = '. (int)$entry_id);
         }

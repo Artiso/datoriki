@@ -34,7 +34,7 @@
         	<order>4</order>
         </search>   
         <add>
-        	<label>Pievienot jaunu tēmu</label>
+        	<label>Izveidot jaunu tēmu</label>
         	<module>default</module>
         	<controller>index</controller>
         	<action>addtopic</action>
