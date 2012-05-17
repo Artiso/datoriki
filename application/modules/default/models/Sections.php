@@ -12,8 +12,6 @@
         {
            $v1 = $_GET['section_id'];
            
-           $sectionName = "nosaukums";
-           
            foreach($this->sections as $sections) :
                $section_id = $this->escape($sections->section_id);
                if ($section_id == $v1)
