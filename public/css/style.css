@@ -49,7 +49,7 @@ body{
 	border:1px solid blue;
 	max-height:150px;
 	max-width:150px;
-	vertical-align:center;
+	vertical-align:middle;
 }
 
 #userProfileInformation p{
@@ -65,7 +65,7 @@ body{
 	background:#DCDCDC;
 	height:30px;
 	line-height:30px;
-	vertical-align:center;
+	vertical-align: middle;
 	text-align:center;
 	color:#940000;
 }

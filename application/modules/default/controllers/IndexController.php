@@ -18,15 +18,13 @@ class IndexController extends JP_Controller_Action
     {
         // Adds a title to the page
         $this->view->headTitle('Sākums', 'PREPEND');
+             
+        $sections = new Model_Sections();
+        $select = $sections->select()->from('sections')->order('section_id ASC');
+        $this->view->sections = $sections->fetchAll($select);
         
-        $sectionstwo = new Model_Sectionstwo();
-        $this->view->sectionstwo = $sectionstwo->fetchAll();
-        
-        //$sections = new Model_Sections();
-        //$this->view->sections = $sections->fetchAll();
-        
-        //$undersections = new Model_Undersections();
-        //$this->view->undersections = $undersections->fetchAll();
+        $undersections = new Model_Undersections();
+        $this->view->undersections = $undersections->fetchAll();
         
         $entries = new Model_Entries();
         $this->view->entries = $entries->fetchAll();
@@ -82,10 +80,13 @@ class IndexController extends JP_Controller_Action
         
     }
     
-    public function councilacademicAction()
+    public function opensectionAction()
     {
-        $this->view->headTitle('Akadēmiskā komisija', 'PREPEND');
+        $sections = new Model_Sections();
+        $section_name = $sections->sectionNaming($sectionName);
         
+        $this->view->section_name = $section_name;
+        $this->view->sections = $sections->fetchAll();
     }
     
 }

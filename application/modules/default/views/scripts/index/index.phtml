@@ -17,62 +17,18 @@ echo $this->doctype();
     <body>
         
         <div class="section">
-           <?php foreach($this->sectionstwo as $sectionstwo) : ?>
-
-           <!-- Generates names of sections -->
-           <h1><?php echo $this->escape($sectionstwo->section_name);?></h1>
-
-              <!-- Generates names of undersections -->
-              <?php foreach($sectionstwo->getchildren() as $undersections) : ?>
-                 <div class="underSection">
-                    <h2>
-                      <a href="">
-                         <?php echo $this->escape($undersections->section_name);?>
-                      </a>
-                    </h2>
-                 </div>
-              <?php endforeach; ?>
-              
+           <?php foreach($this->sections as $sections) : ?>
+               
+               <!-- Generates names of sections -->
+               <?php
+                    $section_name = $this->escape($sections->section_name);
+                    $section_id = $this->escape($sections->section_id);
+                    
+                    echo "<h1><a href='/index/opensection?section_id=".$section_id."' > ".$section_name."</a></h1>";
+                    
+               ?>
            <?php endforeach; ?>
         </div>
-         
-        <?php foreach($this->entries as $entries) : ?>
-                <?php echo $this->escape($entries->entry_topic);?>
-                <?php echo $this->escape($entries->entry_text);?>
-        <?php endforeach; ?>
         
-        <!--
-        <div id="councilContainer" class="section">
-                <h1>Datorikas fakultātes Studentu pašpārvalde</h1>
-                <div class="underSection"><h2><a href="/index/councilacademic?section=1&amp;undersection=3&amp;underundersection=1">Akadēmiskā komisija</a></h2></div>
-                <div class="underSection"><h2>Informācijas komisija</h2></div>
-                <div class="underSection"><h2>Kultūras komisija</h2></div>
-                <div class="underSection"><h2>Sabiedrisko attiecību komisija</h2></div>
-        </div>
-
-        <div id="bachelorContainer" class="section">
-                <h1>Bakalaura studiju programmas studentiem</h1>
-                <div class="underSection"><h2>1. gads</h2></div>
-                <div class="underSection"><h2>2. gads</h2></div>
-                <div class="underSection"><h2>3. gads</h2></div>
-                <div class="underSection"><h2>4. gads</h2></div>
-        </div>
-
-        <div id="masterContainer" class="section">
-                <h1>Maģistrantūras studiju programmas studentiem</h1>
-                <div class="underSection"><h2>1. gads</h2></div>
-                <div class="underSection"><h2>2. gads</h2></div>
-        </div>
-
-        <div id="doctoralContainer" class="section">
-                <h1>Doktorantūras studiju programmas studentiem</h1>
-                <div class="underSection"><h2>Visiem doktorantūras studentiem</h2></div>
-        </div>
-
-        <div id="stuffContainer" class="section">
-                <h1>Citas tēmas</h1>
-                <div class="underSection"><h2>Sarunu laukums</h2></div>
-        </div>
-        -->
     </body>
 </html>
