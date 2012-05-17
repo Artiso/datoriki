@@ -8,11 +8,13 @@
             
         }
         
-        public function sectionNaming()
+        /*public function sectionNaming()
         {
            $v1 = $_GET['section_id'];
            
-           foreach($this->sections as $sections) :
+           $sectionName = "No section name found";
+                   
+           foreach($this->sections as $sections) :                              // Šis izmet error par $sections
                $section_id = $this->escape($sections->section_id);
                if ($section_id == $v1)
                {
@@ -21,6 +23,6 @@
                    return $sectionName;
                }              
            endforeach;
-        }
+        }*/
     }
 ?>

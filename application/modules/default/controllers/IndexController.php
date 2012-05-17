@@ -83,9 +83,9 @@ class IndexController extends JP_Controller_Action
     public function opensectionAction()
     {
         $sections = new Model_Sections();
-        $section_name = $sections->sectionNaming($sectionName);
+        //$section_name = $sections->sectionNaming();
         
-        $this->view->section_name = $section_name;
+        //$this->view->section_name = $section_name;
         $this->view->sections = $sections->fetchAll();
     }
     

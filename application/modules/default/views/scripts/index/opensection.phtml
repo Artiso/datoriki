@@ -15,8 +15,23 @@ echo $this->doctype();
         ?>
     </head>
     <body>
+        
+        <?php
+            $v1 = $_GET['section_id'];
+
+            $sectionName = "No section name found";
+
+            foreach ($this->sections as $sections) :                              // Šis izmet error par $sections
+                $section_id = $this->escape($sections->section_id);
+                if ($section_id == $v1) {
+                    $sectionName = $this->escape($sections->section_name);
+                    break;
+                }
+            endforeach;
+        ?>
+        
         <div id="sectionContentContainer" class="section topicSection">
-            <h1><?php echo $this->section_name ?></h1>
+            <h1><?php echo $sectionName ?></h1>
         </div>
     </body>
 </html>
