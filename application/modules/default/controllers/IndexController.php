@@ -80,13 +80,27 @@ class IndexController extends JP_Controller_Action
         
     }
     
-    public function opensectionAction()
+    public function sectionAction()
     {
         $sections = new Model_Sections();
         //$section_name = $sections->sectionNaming();
-        
         //$this->view->section_name = $section_name;
         $this->view->sections = $sections->fetchAll();
+        
+        $undersections = new Model_Undersections();
+        $this->view->undersections = $undersections->fetchAll();
+        
+        $entries = new Model_Entries();
+        $this->view->entries = $entries->fetchAll();
+    }
+    
+    public function undersectionAction()
+    {
+        $undersections = new Model_Undersections();
+        $this->view->undersections = $undersections->fetchAll();
+        
+        $entries = new Model_Entries();
+        $this->view->entries = $entries->fetchAll();
     }
     
 }

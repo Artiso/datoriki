@@ -1,0 +1,73 @@
+<?php
+echo $this->doctype();
+?>
+<html>
+    <head>
+        <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+        <META HTTP-EQUIV="Expires" CONTENT="-1">
+        <?php
+            echo $this->headMeta();
+        ?>
+        <?php
+            echo $this->headTitle();
+            echo $this->headLink()->appendStylesheet($this->baseUrl('/css/style.css'));
+            echo $this->jQuery();
+        ?>
+    </head>
+    <body>
+        
+        <?php
+            // Retrieving the parameter added in the link
+            $v1 = $_GET['section_id'];
+
+            $sectionName = "No section name found";
+            
+            // Cycle goes through the sections table
+            foreach ($this->sections as $sections) :
+                $section_id = $this->escape($sections->section_id);
+                // If the current row section_id equals the number in the link..
+                if ($section_id == $v1) {
+                    // The current section_name is saved in the $sectionName variable
+                    $sectionName = $this->escape($sections->section_name);
+                    break;
+                }
+            endforeach;
+        ?>
+        
+        <!-- The main content container -->
+        <div id="sectionContentContainer" class="section topicSection">
+            <!-- The name of the current section -->
+            <h1><?php echo $sectionName ?></h1>
+
+            <!-- Generates names of undersections -->
+            <?php foreach($this->undersections as $undersections) :
+                // Retrieves the section_id under which the undersections lie
+                $undersectionSectionId = $this->escape($undersections->section_id);
+                
+                // If the undersection's section_id is equal to the current section's id
+                if ($section_id == $undersectionSectionId)
+                {
+                    $undersection_name = $this->escape($undersections->undersection_name);
+                    $undersection_id = $this->escape($undersections->undersection_id);
+                    
+                    // Displays the corresponding undersections, which belong to the current section
+                    echo "<h2><a href='/index/undersection?section_id=".$section_id."&undersection_id=".$undersection_id."' > ".$undersection_name."</a></h2>";
+                }                  
+            endforeach; ?>
+            
+            <?php foreach($this->entries as $entries) :
+                
+                $entrySectionId = $this->escape($entries->section_id);
+                $entryUndersectionId = $this->escape($entries->undersection_id);
+                
+                if ($section_id == $entrySectionId && $undersection_id = NULL)
+                {
+                    echo $this->escape($entries->entry_topic);
+                    echo $this->escape($entries->entry_text);
+                }
+            endforeach; ?>
+
+            
+        </div>
+    </body>
+</html>

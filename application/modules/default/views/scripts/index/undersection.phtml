@@ -1,0 +1,58 @@
+<?php
+echo $this->doctype();
+?>
+<html>
+    <head>
+        <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+        <META HTTP-EQUIV="Expires" CONTENT="-1">
+        <?php
+            echo $this->headMeta();
+        ?>
+        <?php
+            echo $this->headTitle();
+            echo $this->headLink()->appendStylesheet($this->baseUrl('/css/style.css'));
+            echo $this->jQuery();
+        ?>
+    </head>
+    <body>
+        <?php
+            // Retrieving the parameter added in the link
+            $v1 = $_GET['section_id'];
+            $v2 = $_GET['undersection_id'];
+
+            $sectionName = "No section name found";
+            $undersectionName = "No undersection name found";
+            
+            // Cycle goes through the undersections table
+            foreach ($this->undersections as $undersections) :
+                $undersection_id = $this->escape($undersections->undersection_id);
+                // If the current row undersection_id equals the number in the link..
+                if ($undersection_id == $v1) {
+                    // The current undersection_name is saved in the $undersectionName variable
+                    $undersectionName = $this->escape($undersections->undersection_name);
+                    break;
+                }
+            endforeach;
+        ?>
+        
+         <!-- The main content container -->
+        <div id="sectionContentContainer" class="section topicSection">
+            <!-- The name of the current section -->
+            <h1><?php echo $undersectionName ?></h1>
+
+            <?php foreach($this->entries as $entries) :
+                
+                $entrySectionId = $this->escape($entries->section_id);
+                $entryUndersectionId = $this->escape($entries->undersection_id);
+                
+                if ($entryUndersectionId == $undersection_id)
+                {
+                    echo $this->escape($entries->entry_topic);
+                    echo $this->escape($entries->entry_text);
+                }
+            endforeach; ?>
+
+            
+        </div>
+    </body>
+</html>

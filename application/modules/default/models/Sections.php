@@ -24,5 +24,16 @@
                }              
            endforeach;
         }*/
+        
+        /*public function getSectionList()
+        {
+            $select = $this->_db
+                            ->select()
+                            ->from($this->_name,
+                                   array('key' => 'section_id',
+                                         'value' => 'section_name'));
+            $result = $this->getAdapter()->fetchAll($select);
+            return $result;  
+        }*/
     }
 ?>
