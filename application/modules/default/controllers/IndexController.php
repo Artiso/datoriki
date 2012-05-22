@@ -30,7 +30,7 @@ class IndexController extends JP_Controller_Action
         $this->view->entries = $entries->fetchAll();
     }
 
-    public function viewProfileAction()
+    public function viewprofileAction()
     {
     	
     }
@@ -55,11 +55,12 @@ class IndexController extends JP_Controller_Action
     
     function addtopicAction()
     {  
-        // AddTopic model call
-        $addTopicModel = new Model_Addtopic();
-        $addTopicModel->newTopicForm();
+        //$addTopicModel = new Model_Topics();
+        //$addTopicModel->getSectionList($sections);
         
-        $form = new Form_Thread();
+        $sectionList = new Model_Sections();
+        
+        $form = new Form_Thread($sectionList->getSectionList());
         $form->submit->setLabel('Izveidot');
         $this->view->form = $form;
         
@@ -102,6 +103,14 @@ class IndexController extends JP_Controller_Action
         $entries = new Model_Entries();
         $this->view->entries = $entries->fetchAll();
     }
+    
+    /*public function saveentryAction(){
+        $saveEntry = new Model_Topics();
+        $saveEntry->saveEntry();
+        
+        $this->_helper->layout->disableLayout();
+        $this->_helper->viewRenderer->setNoRender(true);
+    }*/
     
 }
 

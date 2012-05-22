@@ -5,35 +5,20 @@
         
         public function init()
         {
-            
+
         }
         
-        /*public function sectionNaming()
+        public function getSectionList()
         {
-           $v1 = $_GET['section_id'];
-           
-           $sectionName = "No section name found";
-                   
-           foreach($this->sections as $sections) :                              // Šis izmet error par $sections
-               $section_id = $this->escape($sections->section_id);
-               if ($section_id == $v1)
-               {
-                   $sectionName = $this->escape($sections->section_name);
-                   echo $sectionName;
-                   return $sectionName;
-               }              
-           endforeach;
-        }*/
-        
-        /*public function getSectionList()
-        {
-            $select = $this->_db
-                            ->select()
-                            ->from($this->_name,
-                                   array('key' => 'section_id',
-                                         'value' => 'section_name'));
-            $result = $this->getAdapter()->fetchAll($select);
-            return $result;  
-        }*/
+            $result = $this->select()->from(array('s' => 'sections'),
+                                        array('section_id', 'section_name'));
+            
+            foreach ($this->sections as $sections) :
+                $section_name = $this->escape($undersections->section_name);
+                echo $section_name;
+            endforeach;
+            
+            return $result;
+        }
     }
 ?>

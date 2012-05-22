@@ -92,12 +92,12 @@ body{
 	height:25px;
 	margin-top:0;
 	line-height:25px;
-	vertical-align:center;
+	vertical-align:middle;
 	background: #940000;
 	color:white;	
 }
 
-#contentContainer{
+#mainContainer{
 	position: fixed;
 	top: 0; 
 	left: 200px;
@@ -108,9 +108,13 @@ body{
 	background: #DCDCDC;
 }
 
-* html #contentContainer{ /* for IE6 compatibility */
+* html #mainContainer{ /* for IE6 compatibility */
 	height: 100%; 
 	width: 100%; 
+}
+
+#contentContainer{
+    margin:10px;
 }
 
 .section{

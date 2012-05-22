@@ -10,35 +10,18 @@
             $id = new Zend_Form_Element_Hidden('id');
             $id->addFilter('Int');
          
-            /*$sections = new Model_Sections();
-            $section_list = $sections->getSectionList();
-            $sectionSelection = new Zend_Form_Element_Select('section');
-            $sectionSelection->setLabel('Sadaļas:')
-                             ->addMultiOptions($section_list);*/
-            
-            /*$form=new Zend_Form();
-            $dropdown= new Zend_Form_Element_Select("dropdown");
-            $dropdown->setLabel("Country:");
-            $dropdown->setMultiOptions(array($recordset)); // $recordset is collection of record which is from database
-            $form->addElement($dropdown);*/
-            
-            
-            /*$form = new Zend_Form();
-            $form->addElement('select', '', array(
-                'multiOptions' => array('' => '', '' => '', '' => '', '' => '')
-            ));
-            $select = $form->getElement('');
-            $select->setValue('');*/
-            
-            /* create the element, then add options, validation, and filters
-            $form->addElement('textarea', 'address');
-            $form->address->setLabel('Address:')
-                                   ->setOptions(array('class' => 'tAreaStyles'))
-                                   ->setRequired(false)
-                                   ->addValidator('stringLength', true, array(0, 250))
-                                   ->addFilter('StripTags');*/
-            
-            
+            /*/$sections = $this->createElement("select","sections");
+            $sections ->setLabel("Foruma sadaļa")
+                      ->addMultiOptions(array(
+                            "1" => "DF SP jaunumi un ziņas",
+                            "2" => "DF SP pasākumi"
+                      ));*/
+                    
+            $sections = new Model_Topics();
+            $sectionList = $sections->getSectionList();
+            $section = new Zend_form_Element_Select('sections');
+            $section->setLabel("Sadaļa, kurā publicēt")
+                    ->addMultiOptions($sectionList);
             
             $entry_topic = new Zend_Form_Element_Text('entry_topic');
             $entry_topic->setLabel('Tēmas virsraksts')
@@ -56,15 +39,8 @@
             
             $submit = new Zend_Form_Element_Submit('submit');
             $submit->setAttrib('id', 'submitbutton');
-            $this->addElements(array($id, $entry_topic, $entry_text, $submit));
+            $this->addElements(array($id, $section, $entry_topic, $entry_text, $submit));
         }
     }
 
-    class Form_Dropdown extends Zend_Form
-    {
-        public function init()
-        {
-            $this->addElement(new Form_Element_SectionSelect('section_id'));
-        }
-    }
 ?>

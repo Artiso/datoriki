@@ -38,15 +38,17 @@ echo $this->doctype();
                     ?>
             </div>	
         </div>
-        <div id="contentContainer">
+        <div id="mainContainer">
             <!-- N.B. Jāuztaisa breadcrumbs!!! -->
             <div id="breadcrumbs">
                 <?php echo $this->navigation()->breadcrumbs()->setMinDepth(0)->setLinkLast(true)->setSeparator(" >> "); ?>
             </div>
-            <?php
-                echo $this->partial('priorityMessages.phtml', array('priorityMessages' => $this->priorityMessenger()));
-                echo $this->layout()->content;
-            ?>	                        
+            <div id="contentContainer">
+                <?php
+                    echo $this->partial('priorityMessages.phtml', array('priorityMessages' => $this->priorityMessenger()));
+                    echo $this->layout()->content;
+                ?>	                        
+            </div>
         </div>
         <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
     </body>
