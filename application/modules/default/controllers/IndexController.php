@@ -21,20 +21,14 @@ class IndexController extends JP_Controller_Action
         
         // Calls for the section model
         $sections = new Model_Sections();
-        // Retrieves the necessary data from the database
-       // $select = $sections->select()->from('sections')->order('section_id ASC');
         // Passes the retrieved data to the section view
         $this->view->sections = $sections->getSectionList(" ASC");
         
         $undersections = new Model_Undersections();
-        $this->view->undersections = $undersections->getAll();
+        $this->view->undersections = $undersections->getAllData();
         
         $entries = new Model_Entries();
-        $this->view->entries = $entries->fetchAll();
-        /**
-         * Visus šos fetchall un selectus pēc idejas vajadzētu pārnest uz modeli
-         * 
-         */
+        $this->view->entries = $entries->getAllData();
     }
 
     public function viewprofileAction()
@@ -52,76 +46,66 @@ class IndexController extends JP_Controller_Action
     	 
     }
     
-    // Topic entries with forms.xml
-    /*public function getForm($myForm)
-    {
-        $config = new Zend_Config_Xml('/configs/forms.xml', 'localhost');
-        $form = new Zend_Form($config->user->$myForm);
-        return $form;
-    }*/
-    
+    // Function for adding topics
     function addtopicAction()
-    {  
-        //$addTopicModel = new Model_Topics();
-        //$addTopicModel->getSectionList($sections);
+    {          
+        $undersectionList = new Model_Undersections();
         
-        /*$db = Zend_Db::factory('mysqli', 'application.ini');
-        $db->getConnection();
-        Zend_Db_Table::setDefaultAdapter($db);*/
-        
-        $sectionList = new Model_Sections();
-        
-        $form = new Form_Thread($sectionList->getSectionList());
+        $form = new Form_Thread($undersectionList->getUndersectionList());
         $form->submit->setLabel('Izveidot');
         $this->view->form = $form;
         
-        if ($this->getRequest()->isPost()) {
+        if ($this->getRequest()->isPost())
+        {
             $formData = $this->getRequest()->getPost();
-            if ($form->isValid($formData)) {
-                $section_id = $form->getValue('section_id');
+            if ($form->isValid($formData))
+            {
+                
+                $undersection_id = $form->getValue('undersection');
                 $entry_topic = $form->getValue('entry_topic');
                 $entry_text = $form->getValue('entry_text');
                 $posts = new Model_Entries();
-                var_dump($posts->addEntry($section_id, $entry_topic, $entry_text));
-                var_dump($formData);
+                $posts->addEntry($undersection_id, $entry_topic, $entry_text);
+                
                 $this->_helper->redirector('index');
-            } else {
+            }
+            else
+            {
                 $form->populate($formData);
             }
         }
         
     }
     
+    // Function that calls for the topic view
+    public function topicviewAction()
+    {
+        $entries = new Model_Entries();
+        $this->view->entries = $entries->getAllData();
+    }
+    
     public function sectionAction()
     {
         $sections = new Model_Sections();
-        //$section_name = $sections->sectionNaming();
-        //$this->view->section_name = $section_name;
         $this->view->sections = $sections->fetchAll();
         
         $undersections = new Model_Undersections();
-        $this->view->undersections = $undersections->fetchAll();
+        $this->view->undersections = $undersections->getAllData();
         
         $entries = new Model_Entries();
-        $this->view->entries = $entries->fetchAll();
+        $this->view->entries = $entries->getAllData();
     }
     
     public function undersectionAction()
     {
+        $sections = new Model_Sections();
+        $this->view->sections = $sections->fetchAll();
+        
         $undersections = new Model_Undersections();
-        $this->view->undersections = $undersections->fetchAll();
+        $this->view->undersections = $undersections->getAllData();
         
         $entries = new Model_Entries();
-        $this->view->entries = $entries->fetchAll();
-    }
-    
-    /*public function saveentryAction(){
-        $saveEntry = new Model_Topics();
-        $saveEntry->saveEntry();
-        
-        $this->_helper->layout->disableLayout();
-        $this->_helper->viewRenderer->setNoRender(true);
-    }*/
-    
+        $this->view->entries = $entries->getAllData();
+    }   
 }
 

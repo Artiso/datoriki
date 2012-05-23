@@ -39,7 +39,7 @@ echo $this->doctype();
             <!-- The name of the current section -->
             <h1><?php echo $sectionName ?></h1>
 
-            <!-- Generates names of undersections -->
+            <!-- Displays names of undersections -->
             <?php foreach($this->undersections as $undersections) :
                 // Retrieves the section_id under which the undersections lie
                 $undersectionSectionId = $this->escape($undersections->section_id);
@@ -51,23 +51,27 @@ echo $this->doctype();
                     $undersection_id = $this->escape($undersections->undersection_id);
                     
                     // Displays the corresponding undersections, which belong to the current section
-                    echo "<h2><a href='/index/undersection?section_id=".$section_id."&undersection_id=".$undersection_id."' > ".$undersection_name."</a></h2>";
+                    echo "<h2><a href='/index/undersection?&undersection_id=".$undersection_id."' >".$undersection_name."</a></h2>";
                 }                  
             endforeach; ?>
-            
-            <?php foreach($this->entries as $entries) :
-                
+        </div>
+        
+        <!-- Displays all of the topics created in this section -->
+        <div id="entryContainer" class="section">
+            <?php foreach ($this->entries as $entries) :
+                // Retrieves the identificator of the current entry's section and undersection
                 $entrySectionId = $this->escape($entries->section_id);
                 $entryUndersectionId = $this->escape($entries->undersection_id);
                 
-                if ($section_id == $entrySectionId && $undersection_id = NULL)
-                {
-                    echo $this->escape($entries->entry_topic);
-                    echo $this->escape($entries->entry_text);
+                // Retrieves the identificator of the current entry's section and undersection
+                $entryTopic = $this->escape($entries->entry_topic);
+                $entryId = $this->escape($entries->entry_id);
+                
+                // If the entry is supposed to be in the current section/undersection opened, it is displayed
+                if (($section_id == $entrySectionId) && ($entryUndersectionId == NULL)) {
+                    echo "<h3><a href='/index/topicview?topic_id=".$entryId."'>".$entryTopic."</a></h3>";
                 }
             endforeach; ?>
-
-            
         </div>
     </body>
 </html>

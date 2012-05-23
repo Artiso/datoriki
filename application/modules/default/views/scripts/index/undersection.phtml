@@ -17,8 +17,7 @@ echo $this->doctype();
     <body>
         <?php
             // Retrieving the parameter added in the link
-            $v1 = $_GET['section_id'];
-            $v2 = $_GET['undersection_id'];
+            $v1 = $_GET['undersection_id'];
 
             $sectionName = "No section name found";
             $undersectionName = "No undersection name found";
@@ -34,6 +33,9 @@ echo $this->doctype();
                 }
             endforeach;
         ?>
+        
+        
+        <h1><?= $undersectionName ?></h1>
         
          <!-- The main content container -->
         <div id="sectionContentContainer" class="section topicSection">
@@ -51,8 +53,24 @@ echo $this->doctype();
                     echo $this->escape($entries->entry_text);
                 }
             endforeach; ?>
-
-            
+        </div>
+         
+        <!-- Displays all of the topics created in this section -->
+        <div id="entryContainer" class="section">
+            <?php foreach ($this->entries as $entries) :
+                // Retrieves the identificator of the current entry's section and undersection
+                $entrySectionId = $this->escape($entries->section_id);
+                $entryUndersectionId = $this->escape($entries->undersection_id);
+                
+                // Retrieves the identificator of the current entry's section and undersection
+                $entryTopic = $this->escape($entries->entry_topic);
+                $entryId = $this->escape($entries->entry_id);
+                
+                // If the entry is supposed to be in the current section/undersection opened, it is displayed
+                if ($undersection_id == $entryUndersectionId) {
+                    echo "<h3><a href='/index/topicview?topic_id=".$entryId."'>".$entryTopic."</a></h3>";
+                }
+            endforeach; ?>
         </div>
     </body>
 </html>

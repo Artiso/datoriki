@@ -27,6 +27,25 @@ echo $this->doctype();
                     echo "<h1><a href='/index/section?section_id=".$section_id."' > ".$section_name."</a></h1>";
                     
                ?>
+               
+               <div id="sectionContentContainer" class="section topicSection">
+                    <!-- Displays names of undersections -->
+                    <?php foreach($this->undersections as $undersections) :
+                        // Retrieves the section_id under which the undersections lie
+                        $undersectionSectionId = $this->escape($undersections->section_id);
+
+                        // If the undersection's section_id is equal to the current section's id
+                        if ($section_id == $undersectionSectionId)
+                        {
+                            $undersection_name = $this->escape($undersections->undersection_name);
+                            $undersection_id = $this->escape($undersections->undersection_id);
+
+                            // Displays the corresponding undersections, which belong to the current section
+                            echo "<h2><a href='/index/undersection?undersection_id=".$undersection_id."' >".$undersection_name."</a></h2>";
+                        }                  
+                    endforeach; ?>
+                </div>
+               
            <?php endforeach; ?>
         </div>
         

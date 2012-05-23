@@ -4,7 +4,7 @@
     {
         public function __construct($choice = null)
         {
-            $sectionSelects = $choice;
+            $undersectionSelects = $choice;
             parent::__construct(null);
             $this->setName('Thread');
             $this->setMethod('post');
@@ -12,16 +12,10 @@
             $id = new Zend_Form_Element_Hidden('id');
             $id->addFilter('Int');
                            
-            $section = new Zend_Form_Element_Select('sections');
-            $section->setLabel("Sadaļa, kurā publicēt")
+            $undersection = new Zend_Form_Element_Select('undersection');
+            $undersection->setLabel("Sadaļa, kurā publicēt")
                     ->setRequired(true);
-            
-            /*
-             * $this->addElement($typeParent = $this->createElement('select', 'pasakumsCategory')
-                     ->setLabel('Pasākuma kategorija')
-                     ->setRequired(true));
-             */
-            
+                        
             $entry_topic = new Zend_Form_Element_Text('entry_topic');
             $entry_topic->setLabel('Tēmas virsraksts')
                 ->setRequired(true)
@@ -39,17 +33,16 @@
             $submit = new Zend_Form_Element_Submit('submit');
             $submit->setAttrib('id', 'submitbutton');
             
-           // var_dump($sectionSelects);
-            if (!is_null($sectionSelects))
+            if (!is_null($undersectionSelects))
             {
-                foreach ($sectionSelects as $sectionSelect)
+                foreach ($undersectionSelects as $undersectionSelect)
                 {
-                    $section->addMultiOption($sectionSelect['section_id'],
-                                             $sectionSelect['section_name']);
+                    $undersection->addMultiOption($undersectionSelect['undersection_id'],
+                                             $undersectionSelect['undersection_name']);
                 }
             }
             
-            $this->addElements(array($id, $section, $entry_topic, $entry_text, $submit));
+            $this->addElements(array($undersection, $entry_topic, $entry_text, $submit));
             
             
         }

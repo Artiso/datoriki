@@ -3,14 +3,14 @@
     {
         protected $_name = 'entries';
         
-        public function addEntry ($section_id, $entry_topic, $entry_text)
+        public function addEntry ($undersection_id, $entry_topic, $entry_text)
         {
             $data = array(
-              'section_id' => 1, // $section_id
+              'undersection_id' => $undersection_id,
               'entry_topic' => $entry_topic,
               'entry_text' => $entry_text,
             );
-         return  $this->insert($data);
+            return $this->insert($data);
         }
         
         public function getEntry ()
@@ -35,6 +35,10 @@
         public function deleteEntry ()
         {
             $this->delete('entry_id =' . (int)$entry_id);
+        }
+        
+        public function getAllData(){
+            return $this->fetchAll();
         }
     }
 ?>

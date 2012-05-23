@@ -7,8 +7,16 @@
         {
             
         }
-        public function getAll(){
+        
+        public function getAllData(){
             return $this->fetchAll();
+        }
+        
+        public function getUndersectionList($direction="")
+        {
+            $query = $this->select()->from($this->_name)->order('undersection_id'.$direction);
+            $result = $this->fetchAll($query);
+            return $result;
         }
     }
 ?>
