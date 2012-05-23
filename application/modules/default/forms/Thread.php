@@ -2,26 +2,25 @@
     
     class Form_Thread extends Zend_Form
     {
-        public function init()
+        public function init($choice = null)
         {
+            $sectionSelects = $choice;
+            
             $this->setName('Thread');
             $this->setMethod('post');
             
             $id = new Zend_Form_Element_Hidden('id');
             $id->addFilter('Int');
-         
-            /*/$sections = $this->createElement("select","sections");
-            $sections ->setLabel("Foruma sadaļa")
-                      ->addMultiOptions(array(
-                            "1" => "DF SP jaunumi un ziņas",
-                            "2" => "DF SP pasākumi"
-                      ));*/
-                    
-            $sections = new Model_Topics();
-            $sectionList = $sections->getSectionList();
-            $section = new Zend_form_Element_Select('sections');
+                           
+            $section = new Zend_Form_Element_Select('sections');
             $section->setLabel("Sadaļa, kurā publicēt")
-                    ->addMultiOptions($sectionList);
+                    ->setRequired(true);
+            
+            /*
+             * $this->addElement($typeParent = $this->createElement('select', 'pasakumsCategory')
+                     ->setLabel('Pasākuma kategorija')
+                     ->setRequired(true));
+             */
             
             $entry_topic = new Zend_Form_Element_Text('entry_topic');
             $entry_topic->setLabel('Tēmas virsraksts')
@@ -40,6 +39,15 @@
             $submit = new Zend_Form_Element_Submit('submit');
             $submit->setAttrib('id', 'submitbutton');
             $this->addElements(array($id, $section, $entry_topic, $entry_text, $submit));
+            
+            if (!is_null($sectionSelects))
+            {
+                foreach ($sectionSelects as $sectionSelect)
+                {
+                    $section->addMultiOption($sectionSelect->sectionId,
+                                             $sectionSelect->sectionName);
+                }
+            }
         }
     }
 

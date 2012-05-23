@@ -18,39 +18,8 @@ echo $this->doctype();
         ?>
     </head>
     <body>
-        <form action="saveentry" method="post">
-            <h3>Sadaļa</h3>
-            <select name="sectionId">
-                <option value="none" selected>Izvēlies...</option>
-                <optgroup label="DF Studentu pašpārvalde" class="sectionSelectGroup">
-                  <option value="councilNews">Jaunumi un ziņas</option>
-                  <option value="councilEvents">Pasākumi</option>
-                  <optgroup label="Komisijas" class="undersectionSelectGroup">
-                      <option value="academic">Akadēmiskā komisija</option>
-                      <option value="info">Informācijas komisija</option>
-                      <option value="culture">Kultūras komisija</option>
-                      <option value="PR">Sabiedrisko attiecību komisija</option>
-                  </optgroup>
-                  <option value="councilOther">Citas DF SP sarunas</option>
-                </optgroup>
-                <optgroup label="Bakalauri" class="sectionSelectGroup">
-                    <option value="ba1st">1. gads</option>
-                    <option value="ba2nd">2. gads</option>
-                    <option value="ba3rd">3. gads</option>
-                    <option value="ba4th">4. gads</option>
-                </optgroup>
-                <optgroup label="Maģistranti" class="sectionSelectGroup">
-                    <option value="ma1st">1. gads</option>
-                    <option value="ma2nd">2. gads</option>
-                </optgroup>
-                <option value="doctors" class="sectionSelectGroup">Doktoranti</option>
-                <option value="other" class="sectionSelectGroup">Citas diskusijas</option>
-            </select>
-            <h3>Virsraksts</h3>
-            <input type="text" size="50" name="entry_topic"/>
-            <h3>Teksts</h3>
-            <textarea rows="10" cols="50" name="entry_text"></textarea><br/>
-            <input type="submit" value ="Publicēt" name="submit"/>
-        </form>
+        <?php            
+            echo $this->form ;
+        ?>
     </body>
 </html>

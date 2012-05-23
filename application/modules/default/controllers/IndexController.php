@@ -18,9 +18,12 @@ class IndexController extends JP_Controller_Action
     {
         // Adds a title to the page
         $this->view->headTitle('Sākums', 'PREPEND');
-             
+        
+        // Calls for the section model
         $sections = new Model_Sections();
+        // Retrieves the necessary data from the database
         $select = $sections->select()->from('sections')->order('section_id ASC');
+        // Passes the retrieved data to the section view
         $this->view->sections = $sections->fetchAll($select);
         
         $undersections = new Model_Undersections();
@@ -57,6 +60,10 @@ class IndexController extends JP_Controller_Action
     {  
         //$addTopicModel = new Model_Topics();
         //$addTopicModel->getSectionList($sections);
+        
+        /*$db = Zend_Db::factory('mysqli', 'application.ini');
+        $db->getConnection();
+        Zend_Db_Table::setDefaultAdapter($db);*/
         
         $sectionList = new Model_Sections();
         

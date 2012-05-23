@@ -3,20 +3,19 @@
     {
         protected $_name = 'sections';
         
-        public function init()
-        {
-
-        }
-        
         public function getSectionList()
         {
-            $result = $this->select()->from(array('s' => 'sections'),
-                                        array('section_id', 'section_name'));
+            /*$query = $this->select()
+                           ->from(array('s' => 'sections'),
+                                  array('section_id', 'section_name'));*/
             
-            foreach ($this->sections as $sections) :
-                $section_name = $this->escape($undersections->section_name);
-                echo $section_name;
-            endforeach;
+            //$query = "SELECT section_id, section_name FROM sections";
+            
+            $query = $this->select()->from('sections')->order('section_id');
+            
+            $result = $this->fetchAll($query);
+            
+            print_r($result);
             
             return $result;
         }
