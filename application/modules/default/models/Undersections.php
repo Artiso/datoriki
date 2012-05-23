@@ -7,5 +7,8 @@
         {
             
         }
+        public function getAll(){
+            return $this->fetchAll();
+        }
     }
 ?>

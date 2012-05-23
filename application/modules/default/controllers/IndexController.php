@@ -22,15 +22,19 @@ class IndexController extends JP_Controller_Action
         // Calls for the section model
         $sections = new Model_Sections();
         // Retrieves the necessary data from the database
-        $select = $sections->select()->from('sections')->order('section_id ASC');
+       // $select = $sections->select()->from('sections')->order('section_id ASC');
         // Passes the retrieved data to the section view
-        $this->view->sections = $sections->fetchAll($select);
+        $this->view->sections = $sections->getSectionList(" ASC");
         
         $undersections = new Model_Undersections();
-        $this->view->undersections = $undersections->fetchAll();
+        $this->view->undersections = $undersections->getAll();
         
         $entries = new Model_Entries();
         $this->view->entries = $entries->fetchAll();
+        /**
+         * Visus šos fetchall un selectus pēc idejas vajadzētu pārnest uz modeli
+         * 
+         */
     }
 
     public function viewprofileAction()
@@ -78,8 +82,8 @@ class IndexController extends JP_Controller_Action
                 $entry_topic = $form->getValue('entry_topic');
                 $entry_text = $form->getValue('entry_text');
                 $posts = new Model_Entries();
-                $posts->addEntry($section_id, $entry_topic, $entry_text);
-                
+                var_dump($posts->addEntry($section_id, $entry_topic, $entry_text));
+                var_dump($formData);
                 $this->_helper->redirector('index');
             } else {
                 $form->populate($formData);

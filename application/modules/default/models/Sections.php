@@ -3,19 +3,14 @@
     {
         protected $_name = 'sections';
         
-        public function getSectionList()
+        public function getSectionList($direction="")
         {
-            /*$query = $this->select()
-                           ->from(array('s' => 'sections'),
-                                  array('section_id', 'section_name'));*/
-            
-            //$query = "SELECT section_id, section_name FROM sections";
-            
-            $query = $this->select()->from('sections')->order('section_id');
-            
+            $query = $this->select()->from($this->_name)->order('section_id'.$direction);
+            //var_dump($query->assemble());
+            //exit;
             $result = $this->fetchAll($query);
             
-            print_r($result);
+            //print_r($result);
             
             return $result;
         }

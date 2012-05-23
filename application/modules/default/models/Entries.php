@@ -10,7 +10,7 @@
               'entry_topic' => $entry_topic,
               'entry_text' => $entry_text,
             );
-            $this->insert($data);
+         return  $this->insert($data);
         }
         
         public function getEntry ()

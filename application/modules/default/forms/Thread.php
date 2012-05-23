@@ -2,10 +2,10 @@
     
     class Form_Thread extends Zend_Form
     {
-        public function init($choice = null)
+        public function __construct($choice = null)
         {
             $sectionSelects = $choice;
-            
+            parent::__construct(null);
             $this->setName('Thread');
             $this->setMethod('post');
             
@@ -38,16 +38,20 @@
             
             $submit = new Zend_Form_Element_Submit('submit');
             $submit->setAttrib('id', 'submitbutton');
-            $this->addElements(array($id, $section, $entry_topic, $entry_text, $submit));
             
+           // var_dump($sectionSelects);
             if (!is_null($sectionSelects))
             {
                 foreach ($sectionSelects as $sectionSelect)
                 {
-                    $section->addMultiOption($sectionSelect->sectionId,
-                                             $sectionSelect->sectionName);
+                    $section->addMultiOption($sectionSelect['section_id'],
+                                             $sectionSelect['section_name']);
                 }
             }
+            
+            $this->addElements(array($id, $section, $entry_topic, $entry_text, $submit));
+            
+            
         }
     }
 
