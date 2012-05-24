@@ -33,3 +33,17 @@
     color:#940000;
     background:#DCDCDC;
 }
+
+#authorBox{
+    width:200px;
+    line-height:30px;
+    border-right:1px solid black;
+    border-bottom:1px solid black;
+    float:left;
+    margin-right:20px;
+    text-align: center;
+}
+
+#textSection{
+    padding:10px;
+}

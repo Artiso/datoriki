@@ -1,0 +1,30 @@
+<?php
+echo $this->doctype();
+?>
+<html>
+    <head>
+        <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+        <META HTTP-EQUIV="Expires" CONTENT="-1">
+        <?php
+            echo $this->headMeta();
+        ?>
+        <?php
+            echo $this->headTitle();
+            echo $this->headLink()->appendStylesheet($this->baseUrl('/css/style.css'));
+            echo $this->headLink()->appendStylesheet($this->baseUrl('/css/topicView.css'));
+            echo $this->jQuery();
+        ?>
+    </head>
+    <body>
+        
+        <div id="button">
+            <a href='/index/saerchForum'>Meklēt ierakstus forumā</a>;
+        </div>
+
+        <div id="button">
+            <a href='/index/saerchUser'>Meklēt lietotāju</a>;
+        </div>
+                    
+        
+    </body>
+</html>

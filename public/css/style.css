@@ -1,117 +1,136 @@
 @CHARSET "UTF-8";
 
 * { /* Elimination of default paddings and margins */
-	padding: 0 0;
-	margin:0 0;
+    padding: 0 0;
+    margin:0 0;
 }
 
 body{
-	min-width:1000px;
-	margin: 0;
-	padding: 0;
-	border: 0;
-	overflow: hidden;
-	height: 100%; 
-	max-height: 100%; 
+    min-width:1000px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+    height: 100%; 
+    max-height: 100%; 
 }
 
 * html body{ /* for IE6 compatibility */
-	padding: 0 0 0 200px;
+    padding: 0 0 0 200px;
 }
 
 /* -------------------- SIDEBAR -------------------- */
 
 #sidebar{
-	position: absolute;
-	top: 0;
-	bottom: 0; 
-	left: 0;
-	width: 200px;
-	height: 100%;
-	overflow: hidden;
-	background: #940000;
-	color: white;
+    position: absolute;
+    top: 0;
+    bottom: 0; 
+    left: 0;
+    width: 200px;
+    height: 100%;
+    overflow: hidden;
+    background: #940000;
+    color: white;
 }
 
 #logoContainer{
-	text-align:center;
-	vertical-align:center;
+    text-align:center;
+    vertical-align:middle;
+    border-bottom:1px solid #DCDCDC;
+    padding-top:25px;
+    padding-bottom:20px;
 }
 
 #userImageContainer{
-	border:1px solid green;
-	height:170px;
-	width:100%;
-	text-align:center;
+    height:170px;
+    width:100%;
+    text-align:center;
+    padding-top:10px;
+    padding-bottom:10px;
 }
 
 #userImageContainer img{
-	border:1px solid blue;
-	max-height:150px;
-	max-width:150px;
-	vertical-align:middle;
+    margin-top:10px;
+    max-height:150px;
+    max-width:150px;
+    vertical-align:middle;
+}
+
+#userProfileInformation{
+    padding-top:10px;
+    border-top:1px solid #DCDCDC;
 }
 
 #userProfileInformation p{
+    text-align: center;
 }
 
 #navigationContainer{
-	padding:10px;
+    margin-top:10px;
+    padding:10px;
+    padding-top:30px;
+    border-top: 1px solid #DCDCDC;
 }
 
 #navigationContainer li{
-	margin-bottom:10px;
-	list-style-type:none;	
-	background:#DCDCDC;
-	height:30px;
-	line-height:30px;
-	vertical-align: middle;
-	text-align:center;
-	color:#940000;
+    margin-bottom:10px;
+    list-style-type:none;	
+    background:#DCDCDC;
+    height:30px;
+    line-height:30px;
+    vertical-align: middle;
+    text-align:center;
+    color:#940000;
 }
 
 #navigationContainer a, #navigationContainer a:visited{
-	display:block;
- 	text-decoration:none;
-	color:#940000;
+    display:block;
+    text-decoration:none;
+    color:#940000;
 }
 
 #navigationContainer a:hover{
-	border:1px solid #DCDCDC;
-	color:#DCDCDC;
-	background-color:#940000;
+    border:1px solid #DCDCDC;
+    color:#DCDCDC;
+    background-color:#940000;
 }
 
 .active {
-	font-weight:bold;
-	text-decoration:underline;
+    font-weight:bold;
+    text-decoration:underline;
 }
 
 
 /* -------------------- FORUM CONTENT -------------------- */
 #breadcrumbs{
-	height:25px;
-	margin-top:0;
-	line-height:25px;
-	vertical-align:middle;
-	background: #940000;
-	color:white;	
+    height:25px;
+    margin-top:0;
+    line-height:25px;
+    vertical-align:middle;
+    background: #940000;
+    color:white;
+    padding-left:25px;
+}
+
+#breadcrumbs a{
+    color: #DCDCDC;
+    
 }
 
 #mainContainer{
-	position: fixed;
-	top: 0; 
-	left: 200px;
-	right: 0;
-	bottom: 0;
-	min-width: 800px;
-	overflow: scroll; 
-	background: #DCDCDC;
+    position: fixed;
+    top: 0; 
+    left: 200px;
+    right: 0;
+    bottom: 0;
+    min-width: 800px;
+    overflow: scroll; 
+    background: #DCDCDC;
 }
 
 * html #mainContainer{ /* for IE6 compatibility */
-	height: 100%; 
-	width: 100%; 
+    height: 100%; 
+    width: 100%; 
 }
 
 #contentContainer{
@@ -119,36 +138,49 @@ body{
 }
 
 .section{
-	border:1px solid black;
-	margin:15px;
+    border:1px solid black;
+    margin:15px;
 }
 
 .section h1{
-	padding: 0 10px;
-	border-bottom:1px solid black;
-	font-size:16pt;
-	background:grey;
+    padding: 0 10px;
+    border-bottom:1px solid black;
+    font-size:16pt;
+    background:grey;
+}
+
+.section h2, h3{
+    padding-left: 10px;
+    border-bottom:1px solid black;
+    background-color:white;
+    font-size:120%;
+}
+
+.section a{
+    text-decoration: none;
+    color:#333333;
 }
 
 .underSection{
-	border:1px solid black;
-	margin:5px 15px;
+    border:1px solid black;
+    margin:5px 15px;
 }
 
 .underSection h2{
-	font-size:14pt;
-	padding-left:10px;
-	background:lightgrey;
+    font-size:14pt;
+    padding-left:10px;
+    background:lightgrey;
 }
 
 .topicSection{
     min-height:90%;
 }
 
+
 /* -------------------- FOOTER -------------------- */
 
 #footer{
-	text-align:center;
+    text-align:center;
 }
 
 /* -------------------- OTHER -------------------- */
@@ -156,4 +188,31 @@ label{
     font-weight: bold;
     margin:5px;
     font-size:120%;
+}
+
+#button
+{
+    margin-left:14px;
+    text-align:center;
+    width:180px;
+    border:1px solid #940000;
+    background: #940000;
+    height:30px;
+    line-height: 30px;
+    vertical-align: middle;
+    color:#DCDCDC;
+    margin-top:20px;
+}
+
+#button a, #button a:visited
+{
+    display:block;
+    text-decoration:none;
+    color:#DCDCDC;
+}
+
+#button a:hover{
+    border:1px solid #940000;
+    color:#940000;
+    background:#DCDCDC;
 }

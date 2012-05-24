@@ -32,6 +32,7 @@ echo $this->doctype();
                     $topicId = $this->escape($entries->entry_id);
                     $topicName = $this->escape($entries->entry_topic);
                     $topicText = $this->escape($entries->entry_text);
+                    $topicAuthor = $this->escape($entries->user_id);
                     break;
                 }
             endforeach;
@@ -45,7 +46,8 @@ echo $this->doctype();
         
         <div class="firstPost section">
             <h1><?= $topicName ?></h1>
-            <p><?= $topicText ?></p>
+            <p id="authorBox">Author: <?= $topicAuthor ?></p> 
+            <p id="textSection"><?= $topicText ?></p>
         </div>
        
     </body>

@@ -19,25 +19,25 @@ echo $this->doctype();
     </head>
     <body>
         
-       <?php
-            // Retrieving the parameter added in the link
-            $v1 = $_GET['topic_id'];
+            <?php
+                // Retrieving the parameter added in the link
+                $v1 = $_GET['topic_id'];
 
-            $topicId = 0;
-            
-            // Cycle goes through the entry table
-            foreach ($this->entries as $entries) :
-                $entry_id = $this->escape($entries->entry_id);
-                // If the current row entry_id equals the number in the link..
-                if ($entry_id == $v1) {
-                    // The current section_name is saved in the $sectionName variable
-                    $topicId = $this->escape($entries->entry_id);
-                    $topicName = $this->escape($entries->entry_topic);
-                    $topicText = $this->escape($entries->entry_text);
-                    break;
-                }
-            endforeach;
-        ?>
+                $topicId = 0;
+
+                // Cycle goes through the entry table
+                foreach ($this->entries as $entries) :
+                    $entry_id = $this->escape($entries->entry_id);
+                    // If the current row entry_id equals the number in the link..
+                    if ($entry_id == $v1) {
+                        // The current section_name is saved in the $sectionName variable
+                        $topicId = $this->escape($entries->entry_id);
+                        $topicName = $this->escape($entries->entry_topic);
+                        $topicText = $this->escape($entries->entry_text);
+                        break;
+                    }
+                endforeach;
+            ?>
         
         <div class="section">
             <? echo "<h1>".$topicName."</h1>"; ?>

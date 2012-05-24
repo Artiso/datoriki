@@ -1,9 +1,4 @@
 <?php
-/**
- * User: Janis
- * Date: 11.26.12
- * Time: 21:59
- */
  
 class Model_Auth {
 
