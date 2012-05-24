@@ -52,7 +52,6 @@ class IndexController extends JP_Controller_Action
         $undersectionList = new Model_Undersections();
         
         $form = new Form_Thread($undersectionList->getUndersectionList());
-        $form->submit->setLabel('Izveidot');
         $this->view->form = $form;
         
         if ($this->getRequest()->isPost())
@@ -60,7 +59,6 @@ class IndexController extends JP_Controller_Action
             $formData = $this->getRequest()->getPost();
             if ($form->isValid($formData))
             {
-                
                 $undersection_id = $form->getValue('undersection');
                 $entry_topic = $form->getValue('entry_topic');
                 $entry_text = $form->getValue('entry_text');
@@ -97,7 +95,7 @@ class IndexController extends JP_Controller_Action
     }
     
     public function undersectionAction()
-    {
+    {        
         $sections = new Model_Sections();
         $this->view->sections = $sections->fetchAll();
         

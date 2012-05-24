@@ -18,20 +18,24 @@
                         
             $entry_topic = new Zend_Form_Element_Text('entry_topic');
             $entry_topic->setLabel('Tēmas virsraksts')
+                ->setAttrib('size', '80')
                 ->setRequired(true)
                 ->addFilter('StripTags')
                 ->addFilter('StringTrim')
                 ->addValidator('NotEmpty');
             
-            $entry_text = new Zend_Form_Element_Text('entry_text');
+            $entry_text = new Zend_Form_Element_Textarea('entry_text');
             $entry_text->setLabel('Teksts')
+                ->setAttrib('cols', '100')
+                ->setAttrib('rows', '20')
                 ->setRequired(true)
                 ->addFilter('StripTags')
                 ->addFilter('StringTrim')
                 ->addValidator('NotEmpty');
             
             $submit = new Zend_Form_Element_Submit('submit');
-            $submit->setAttrib('id', 'submitbutton');
+            $submit->setAttrib('id', 'submitbutton')
+                   ->setLabel('Publicēt');
             
             if (!is_null($undersectionSelects))
             {

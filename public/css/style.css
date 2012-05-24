@@ -87,6 +87,7 @@ body{
 	text-decoration:underline;
 }
 
+
 /* -------------------- FORUM CONTENT -------------------- */
 #breadcrumbs{
 	height:25px;
@@ -148,4 +149,11 @@ body{
 
 #footer{
 	text-align:center;
+}
+
+/* -------------------- OTHER -------------------- */
+label{
+    font-weight: bold;
+    margin:5px;
+    font-size:120%;
 }

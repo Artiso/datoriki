@@ -9,15 +9,17 @@ echo $this->doctype();
             echo $this->headMeta();
         ?>
         <?php
+            $this->title = "Pievienot atbildi";
+            $this->headTitle($this->title);
             echo $this->headTitle();
             echo $this->headLink()->appendStylesheet($this->baseUrl('/css/style.css'));
-            echo $this->headLink()->appendStylesheet($this->baseUrl('/css/topicView.css'));
+            echo $this->headLink()->appendStylesheet($this->baseUrl('/css/entryForm.css'));
             echo $this->jQuery();
         ?>
     </head>
     <body>
         
-        <?php
+       <?php
             // Retrieving the parameter added in the link
             $v1 = $_GET['topic_id'];
 
@@ -37,16 +39,12 @@ echo $this->doctype();
             endforeach;
         ?>
         
-        <div id="replyButton">
-            <?php
-                echo "<a href='/post/addreply?topic_id=".$topicId."'>Pievienot atbildi</a>";
-            ?>
+        <div class="section">
+            <? echo "<h1>".$topicName."</h1>"; ?>
+            <div id="replyForm">
+                <? echo $this->form ; ?>
+            </div>  
         </div>
-        
-        <div class="firstPost section">
-            <h1><?= $topicName ?></h1>
-            <p><?= $topicText ?></p>
-        </div>
-       
+          
     </body>
 </html>

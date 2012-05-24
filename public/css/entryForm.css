@@ -13,4 +13,8 @@
     margin-top:3px;
 }
 
-/* -------------------- SELECT BOX --------------------- */
+/* -------------------- REPLY FORM OBJECTS --------------------- */
+
+#replyForm{
+    margin: 10px;
+}
