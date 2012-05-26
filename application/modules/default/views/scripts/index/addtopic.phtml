@@ -6,20 +6,25 @@ echo $this->doctype();
         <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
         <META HTTP-EQUIV="Expires" CONTENT="-1">
         <?php
-            echo $this->headMeta();
+        echo $this->headMeta();
         ?>
         <?php
-            $this->title = "Pievienot jaunu tēmu";
-            $this->headTitle($this->title);
-            echo $this->headTitle();
-            echo $this->headLink()->appendStylesheet($this->baseUrl('/css/style.css'));
-            echo $this->headLink()->appendStylesheet($this->baseUrl('/css/entryForm.css'));
-            echo $this->jQuery();
+        $this->title = "Pievienot jaunu tēmu";
+        $this->headTitle($this->title);
+        echo $this->headTitle();
+        echo $this->headLink()->appendStylesheet($this->baseUrl('/css/style.css'));
+        echo $this->headLink()->appendStylesheet($this->baseUrl('/css/entryForm.css'));
+        echo $this->jQuery();
         ?>
     </head>
     <body>
-        <?php            
-            echo $this->form ;
-        ?>
+        <div class="form section">
+            <h1>Izveidot jaunu tēmu</h1>
+            <div class="form">
+                <?php
+                echo $this->form;
+                ?>
+            </div>
+        </div>
     </body>
 </html>

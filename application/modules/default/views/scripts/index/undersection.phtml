@@ -34,8 +34,16 @@ echo $this->doctype();
             endforeach;
         ?>
         
+        <div class="buttonContainer">
+            <div class="button">
+                <?php
+                echo "<a href='/index/addtopic'>Izveidot jaunu tēmu</a>";
+                ?>
+            </div>
+        </div>
+        
         <!-- The main content container -->
-        <div id="sectionContentContainer" class="section topicSection">
+        <div class="sectionContentContainer section topicSection">
             <!-- The name of the current section -->
             <h1><?php echo $undersectionName ?></h1>
 

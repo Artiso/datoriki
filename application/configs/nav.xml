@@ -33,13 +33,5 @@
             <uri>/index/search</uri>
             <order>4</order>
         </search>   
-        <add>
-            <label>Izveidot jaunu tēmu</label>
-            <module>default</module>
-            <controller>index</controller>
-            <action>addtopic</action>
-            <uri>/index/addtopic</uri>
-            <order>5</order>
-        </add>
     </nav>
 </configdata>

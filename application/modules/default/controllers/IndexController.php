@@ -13,10 +13,10 @@ class IndexController extends JP_Controller_Action {
     }
 
     public function indexAction() {
-        // Adds a title to the page
+        // Adds a title to the page, which is displayed in the page's tab text
         $this->view->headTitle('Sākums', 'PREPEND');
 
-        // Calls for the section model
+        // Call for the section model, which provides the sections displayed in he main view
         $sections = new Model_Sections();
         // Passes the retrieved data to the section view
         $this->view->sections = $sections->getSectionList(" ASC");
@@ -58,8 +58,11 @@ class IndexController extends JP_Controller_Action {
                 $entry_text = $form->getValue('entry_text');
                 $posts = new Model_Entries();
                 $posts->addEntry($undersection_id, $entry_topic, $entry_text);
-
+                
+                // When the data is saved, the user is redirected to the main page
                 $this->_helper->redirector('index');
+            
+            // If there are errors, the form is populated with the data entered and error messages are shown
             } else {
                 $form->populate($formData);
             }

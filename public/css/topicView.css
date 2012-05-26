@@ -1,37 +1,12 @@
 .firstPost
 {
-    
+    float:left;
+    width:90%;
 }
 
 .firstPost p
 {
     background-color: white;
-}
-
-#replyButton
-{
-    margin-left:14px;
-    text-align:center;
-    width:180px;
-    border:1px solid #940000;
-    background: #940000;
-    height:30px;
-    line-height: 30px;
-    vertical-align: middle;
-    color:#DCDCDC;
-}
-
-#replyButton a, #replyButton a:visited
-{
-    display:block;
-    text-decoration:none;
-    color:#DCDCDC;
-}
-
-#replyButton a:hover{
-    border:1px solid #940000;
-    color:#940000;
-    background:#DCDCDC;
 }
 
 #authorBox{
@@ -46,4 +21,13 @@
 
 #textSection{
     padding:10px;
+}
+
+.form{
+    left:100px;
+    padding:10px;
+}
+
+#Thread{
+    left:50px;
 }

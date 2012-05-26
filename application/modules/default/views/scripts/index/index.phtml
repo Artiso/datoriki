@@ -15,8 +15,16 @@ echo $this->doctype();
         ?>
     </head>
     <body>
+                   
+        <div class="buttonContainer">
+            <div class="button">
+                <?php
+                echo "<a href='/index/addtopic'>Izveidot jaunu tēmu</a>";
+                ?>
+            </div>
+        </div>
         
-        <div class="section">
+        <div class="sectionContentContainer section">
            <?php foreach($this->sections as $sections) : ?>
                
                <!-- Generates names of sections -->
@@ -28,7 +36,7 @@ echo $this->doctype();
                     
                ?>
                
-               <div id="sectionContentContainer" class="section topicSection">
+               <div class="section topicSection">
                     <!-- Displays names of undersections -->
                     <?php foreach($this->undersections as $undersections) :
                         // Retrieves the section_id under which the undersections lie

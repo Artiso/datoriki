@@ -12,7 +12,7 @@ body{
     border: 0;
     overflow: hidden;
     height: 100%; 
-    max-height: 100%; 
+    max-height: 100%;
 }
 
 * html body{ /* for IE6 compatibility */
@@ -37,8 +37,13 @@ body{
     text-align:center;
     vertical-align:middle;
     border-bottom:1px solid #DCDCDC;
-    padding-top:25px;
-    padding-bottom:20px;
+    padding-top:15px;
+    padding-bottom:10px;
+}
+
+#logoContainer img{
+    width:100%;
+    height:100%;
 }
 
 #userImageContainer{
@@ -110,6 +115,8 @@ body{
     background: #940000;
     color:white;
     padding-left:25px;
+    position:fixed;
+    width:100%;
 }
 
 #breadcrumbs a{
@@ -124,7 +131,7 @@ body{
     right: 0;
     bottom: 0;
     min-width: 800px;
-    overflow: scroll; 
+    overflow: auto; 
     background: #DCDCDC;
 }
 
@@ -134,7 +141,9 @@ body{
 }
 
 #contentContainer{
-    margin:10px;
+    margin-top:20px;
+    float:left;
+    width:100%;
 }
 
 .section{
@@ -150,15 +159,20 @@ body{
 }
 
 .section h2, h3{
-    padding-left: 10px;
     border-bottom:1px solid black;
     background-color:white;
-    font-size:120%;
+    font-size:110%;
 }
 
-.section a{
+.section a, section a:visited{
+    padding-left: 10px;
     text-decoration: none;
     color:#333333;
+    display:block;
+}
+
+.topicSection a:hover{
+    background-color:#F2F2F2;
 }
 
 .underSection{
@@ -167,7 +181,7 @@ body{
 }
 
 .underSection h2{
-    font-size:14pt;
+    font-size:12pt;
     padding-left:10px;
     background:lightgrey;
 }
@@ -176,6 +190,10 @@ body{
     min-height:90%;
 }
 
+.sectionContentContainer{
+    float:left;
+    width:90%;
+}
 
 /* -------------------- FOOTER -------------------- */
 
@@ -188,6 +206,47 @@ label{
     font-weight: bold;
     margin:5px;
     font-size:120%;
+}
+
+.buttonContainer{
+    width:100%;
+    float:left;
+    
+}
+
+.button
+{
+    margin-left:14px;
+    margin-top:10px;
+    text-align:center;
+    width:180px;
+    border:1px solid #940000;
+    background: #940000;
+    height:30px;
+    line-height: 30px;
+    vertical-align: middle;
+    color:#DCDCDC;
+    float:left;
+}
+
+.button a 
+{
+    display:block;
+    text-decoration:none;
+    color:#DCDCDC;
+}
+
+.button a:visited
+{
+    display:block;
+    text-decoration:none;
+    color:#DCDCDC;
+}
+
+.button a:hover{
+    border:1px solid #940000;
+    color:#940000;
+    background:#DCDCDC;
 }
 
 #button

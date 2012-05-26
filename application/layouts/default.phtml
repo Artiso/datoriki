@@ -6,46 +6,46 @@ echo $this->doctype();
         <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
         <META HTTP-EQUIV="Expires" CONTENT="-1">
         <?php
-            echo $this->headMeta();
+        echo $this->headMeta();
         ?>
         <?php
-            echo $this->headTitle();
-            echo $this->headLink()->appendStylesheet($this->baseUrl('/css/style.css'));
-            echo $this->jQuery();
+        echo $this->headTitle();
+        echo $this->headLink()->appendStylesheet($this->baseUrl('/css/style.css'));
+        echo $this->jQuery();
         ?>
     </head>
     <body>
         <div id="sidebar">
             <div id="logoContainer">
-                    <a href="/">
-                            <img src="http://ludfsp.lv/wp-content/themes/ludfsp-theme/images/dfsp-logo-120.png" alt="Datoriķi.lv forums"/>
-                    </a>
+                <a href="/">
+                    <img src="<?= $this->baseUrl('images/forum_logo.jpg') ?>" alt="Datoriķi.lv forums"/>
+                </a>
             </div>
             <div id="userImageContainer">
-            <!-- N.B. šim te nevajdzētu būt - pārvietot!!! -->
-            <a>
+                <a>
                     <img src="http://thecontentwrangler.com/wp-content/uploads/2011/08/User.png" alt="Lietotāja attēls"/>
-            </a>
+                </a>
             </div>
             <div id="userProfileInformation">
-                    <p>Administrators</p>
-                    <p>Foruma ierakstu skaits: 0</p>					
+                <p>Administrators</p>
+                <p>Foruma ierakstu skaits: 0</p>					
             </div>
             <div id="navigationContainer">
-                    <?php
-                            echo $this->navigation()->menu(); 
-                    ?>
+                <?php
+                echo $this->navigation()->menu();
+                ?>
             </div>	
         </div>
         <div id="mainContainer">
-            <!-- N.B. Jāuztaisa breadcrumbs!!! -->
+
             <div id="breadcrumbs">
-                <?php echo $this->navigation()->breadcrumbs()->setMinDepth(0)->setLinkLast(true)->setSeparator(" >> "); ?>
+                <?php echo $this->navigation()->breadcrumbs()->setMinDepth(0)->setLinkLast(true)->setSeparator(" >> "); ?> 
             </div>
+            
             <div id="contentContainer">
                 <?php
-                    echo $this->partial('priorityMessages.phtml', array('priorityMessages' => $this->priorityMessenger()));
-                    echo $this->layout()->content;
+                echo $this->partial('priorityMessages.phtml', array('priorityMessages' => $this->priorityMessenger()));
+                echo $this->layout()->content;
                 ?>	                        
             </div>
         </div>
