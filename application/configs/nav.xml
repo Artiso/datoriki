@@ -21,7 +21,7 @@
             <label>Vēstules</label>
             <module>default</module>
             <controller>index</controller>
-            <action>viewMessages</action>
+            <action>viewmessages</action>
             <uri>/index/viewMessages</uri>
             <order>3</order>
         </messages>
@@ -32,6 +32,14 @@
             <action>search</action>
             <uri>/index/search</uri>
             <order>4</order>
-        </search>   
+        </search>
+        <logout>
+            <label>Beigt darbu</label>
+            <module>default</module>
+            <controller>user</controller>
+            <action>logout</action>
+            <uri>/user/logout</uri>
+            <order>5</order>
+        </logout>   
     </nav>
 </configdata>

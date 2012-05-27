@@ -1,0 +1,22 @@
+<?php
+echo $this->doctype();
+?>
+<html>
+    <head>
+        <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+        <META HTTP-EQUIV="Expires" CONTENT="-1">
+        <?php
+        echo $this->headMeta();
+        ?>
+        <?php
+        $this->headTitle($this->title);
+        echo $this->headTitle();
+        echo $this->headLink()->appendStylesheet($this->baseUrl('/css/login.css'));
+        echo $this->jQuery();
+        ?>
+    </head>
+    <body>
+        <h1>Hello, <?=$this->escape($this->username);?></h1>
+        <a href="<?=$this->escape($this->urllogout);?>">Logout</a>
+    </body>
+</html>

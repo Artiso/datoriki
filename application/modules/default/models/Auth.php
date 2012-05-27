@@ -10,4 +10,13 @@ class Model_Auth {
                'username')->setCredentialColumn('password')->setCredentialTreatment('MD5(?)');
                 return $authAdapter;
     }
+    
+    public function getusernameAction() {
+        $auth = Zend_Auth::getInstance();
+        if ($auth->hasIdentity()) {
+            $user = $auth->getIdentity();
+            $username = $user->username;
+            return $username;
+        }
+    }
 }

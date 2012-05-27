@@ -17,11 +17,13 @@ class PostController extends JP_Controller_Action
             $formData = $this->getRequest()->getPost();
             if ($form->isValid($formData))
             {
-                $undersection_id = $form->getValue('reply_text');
-                $posts = new Model_Entries();
-                $posts->addEntry($reply_text);
-                
-                $this->_helper->redirector('index');
+                $reply_text = $form->getValue('reply_text');
+                $reply_id = "1";
+                $replies = new Model_Replies();
+                $replies->addReply($reply_id, $replies->fetchTopicId(), $reply_text);
+                //$this->_helper->redirector('index');
+                $urlOptions = array('controller'=>'index', 'action'=>'index');
+                $this->_helper->redirector->gotoRoute($urlOptions);
             }
             // If there are errors on the page, it is shown again with the data entered and error messages shown
             else

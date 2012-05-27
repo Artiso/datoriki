@@ -13,6 +13,16 @@ class IndexController extends JP_Controller_Action {
     }
 
     public function indexAction() {
+        
+        $request = $this->getRequest();
+        $auth = Zend_Auth::getInstance();
+        if (!$auth->hasIdentity()) {
+            $this->_redirect('/user/loginform');
+        } 
+        /*else {
+            $this->_redirect('/user/userpage');
+        }*/
+        
         // Adds a title to the page, which is displayed in the page's tab text
         $this->view->headTitle('Sākums', 'PREPEND');
 
@@ -26,18 +36,23 @@ class IndexController extends JP_Controller_Action {
 
         $entries = new Model_Entries();
         $this->view->entries = $entries->getAllData();
+        
     }
 
     public function viewprofileAction() {
         // With the help of Zend Autoloader the necessary view is called upon
+        
+        $this->checksession();
     }
 
-    public function viewMessagesAction() {
+    public function viewmessagesAction() {
         // With the help of Zend Autoloader the necessary view is called upon    	 
+    
     }
 
     public function searchAction() {
         // With the help of Zend Autoloader the necessary view is called upon    	 
+        
     }
 
     // Function for adding topics
@@ -58,11 +73,11 @@ class IndexController extends JP_Controller_Action {
                 $entry_text = $form->getValue('entry_text');
                 $posts = new Model_Entries();
                 $posts->addEntry($undersection_id, $entry_topic, $entry_text);
-                
+
                 // When the data is saved, the user is redirected to the main page
                 $this->_helper->redirector('index');
-            
-            // If there are errors, the form is populated with the data entered and error messages are shown
+
+                // If there are errors, the form is populated with the data entered and error messages are shown
             } else {
                 $form->populate($formData);
             }
@@ -73,6 +88,9 @@ class IndexController extends JP_Controller_Action {
     public function topicviewAction() {
         $entries = new Model_Entries();
         $this->view->entries = $entries->getAllData();
+        
+        $replies = new Model_Replies();
+        $this->view->replies = $replies->getAllData();
     }
 
     // Function that calls for the sections to be displayed
@@ -97,6 +115,27 @@ class IndexController extends JP_Controller_Action {
 
         $entries = new Model_Entries();
         $this->view->entries = $entries->getAllData();
+    }
+
+    public function loginAction(){
+        // Disable the layout       
+        $this->_helper->layout()->disableLayout();  
+  
+        
+    }
+    
+    public function logoutAction() {
+        $auth = Zend_Auth::getInstance();
+        $auth->clearIdentity();
+        $this->_redirect('/user/loginform');
+    }
+    
+    public function sessioncheckAction(){
+        $request = $this->getRequest();
+        $auth = Zend_Auth::getInstance();
+        if (!$auth->hasIdentity()) {
+            $this->_redirect('/user/loginform');
+        } 
     }
 
 }

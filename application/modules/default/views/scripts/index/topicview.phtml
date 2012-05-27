@@ -12,6 +12,7 @@ echo $this->doctype();
             echo $this->headTitle();
             echo $this->headLink()->appendStylesheet($this->baseUrl('/css/style.css'));
             echo $this->headLink()->appendStylesheet($this->baseUrl('/css/topicView.css'));
+            echo $this->headLink()->appendStylesheet($this->baseUrl('/css/replyView.css'));
             echo $this->jQuery();
         ?>
     </head>
@@ -56,6 +57,34 @@ echo $this->doctype();
             <p id="authorBox">Author: <?= $topicAuthor ?></p> 
             <p id="textSection"><?= $topicText ?></p>
         </div>
-       
+        <div id="replyContainer">
+            
+            <!-- Displays replies -->
+            <?php foreach($this->replies as $replies) :
+                // Retrieves the section_id under which the undersections lie
+                $replyTopicId = $this->escape($replies->topic_id);
+                
+                // If the undersection's section_id is equal to the current section's id
+                if ($replyTopicId == $topicId)
+                {
+                    $replyAuthor = $this->escape($replies->user_id);
+                    $replyText = $this->escape($replies->reply_text);
+                    $replyTime = $this->escape($replies->reply_time);
+                    
+                    // Displays the corresponding undersections, which belong to the current section
+                    
+                    echo "<div class='replyBox'>";
+                        echo "<div class='replyInfo'>";
+                            echo "<div class='replyAuthor'><p>Autors: ".$replyAuthor."</p></div>";
+                            echo "<div class='replyTime'><p>Atbildes laiks: ".$replyTime."</p></div>";
+                        echo "</div>";
+                        echo "<div class='replyTextBox'>";
+                            echo "<p>".$replyText."</p>";
+                        echo "</div>";
+                    echo "</div>";
+                }                  
+            endforeach; ?>
+
+        </div>
     </body>
 </html>

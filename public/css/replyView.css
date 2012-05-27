@@ -1,0 +1,42 @@
+.replyBox{
+    border:1px solid black;
+    float:left;
+    width:88%;
+    margin-left:3%;
+    margin-top:3px;
+}
+
+.replyInfo{
+    border-bottom:1px solid black;
+}
+
+.replyAuthor{
+    background:grey;
+    float:left;
+    width:40%;
+    border-bottom:1px solid black;
+}
+
+.replyAuthor p{
+    padding-left:20px;
+}
+
+.replyTime{
+    background:grey;
+    float:right;
+    width:60%;
+    text-align:right;
+    border-bottom:1px solid black;
+}
+
+.replyTime p{
+    padding-right:20px;
+}
+
+.replyTextBox{
+    background:white;
+}
+
+.replyTextBox p{
+    padding:10px;
+}

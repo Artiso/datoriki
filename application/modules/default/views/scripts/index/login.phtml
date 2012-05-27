@@ -1,0 +1,32 @@
+<?php
+echo $this->doctype();
+?>
+<html>
+    <head>
+        <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+        <META HTTP-EQUIV="Expires" CONTENT="-1">
+        <?php
+        echo $this->headMeta();
+        ?>
+        <?php
+        $this->headTitle($this->title);
+        echo $this->headTitle();
+        echo $this->headLink()->appendStylesheet($this->baseUrl('/css/style.css'));
+        echo $this->headLink()->appendStylesheet($this->baseUrl('/css/login.css'));
+        echo $this->jQuery();
+        ?>
+    </head>
+    <body>
+        <h1>LU DF SP mājas lapas "aizbāznis"</h1>
+        <h2>Pieslēgšanās lapa</h2>
+        <div class="button">
+            <a href="/index">Ielogoties ar Arta profilu</a>
+        </div>
+        <div class="button">
+            <a href="/index">Ielogoties ar Vijas profilu</a>
+        </div>
+        <div class="button">
+            <a href="/index/logout">Izlogoties</a>
+        </div>
+    </body>
+</html>
